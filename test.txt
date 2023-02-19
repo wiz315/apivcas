@@ -1,0 +1,7 @@
+https://bms.syriatel.sy/API/SendSMS.aspx?
+job_name=orders&
+user_name=CASH SYRIA1&password=P@123456&
+msg=طلبكم قيد 
+التنفيذ رقم الطلب:125482 يرجى استلام الطلب من&
+sender=CASH SYRIA&
+to=963980215527
