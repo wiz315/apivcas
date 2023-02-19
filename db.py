@@ -1,6 +1,7 @@
 from pymongo import MongoClient
+import pymongo
 from timeHelper import timeNow, nextOrderTime
-
+from pandas import DataFrame
 client = MongoClient("mongodb+srv://cash:yazz313YGCAH@cluster0.2g7of4m.mongodb.net/?retryWrites=true&w=majority",)
 db = client.cash
 user = db.user
@@ -14,8 +15,9 @@ except:
   
 
 class ope():
-    def createUser(firstname, midname,lastname, phone, email, verify, state, username, badg):
+    def createUser(userid,firstname, midname,lastname, phone, email, verify, state, username, badg):
         data = {
+            "userId": userid,
             "fname": firstname,
             "mname": midname,
             "lastname": lastname,
@@ -59,5 +61,10 @@ class ope():
 #find one order by order id
     def findOrderbyOrderID(orderID):
         data = db['orders'].find({"orderId": {"$eq": orderID}})
-        return data
+        for doc in data:
+            return doc
     
+    def findlastorder(userID):
+        data = db['orders'].find({"userID": {"$eq": userID}},{'_id': 0}).sort("_id", -1 )
+        for doc in data:
+            return doc

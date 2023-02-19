@@ -37,8 +37,13 @@ def newOrder(userId, type, card,price, delar ,amount, delarprice,usernote, admin
 
 @app.get("/api/getorderbtuserId")
 def getbyuserid(id):
-    data = ope.findOrderbyUserId(int(id))
+    data = ope.findOrderbyUserId(id)
     return {"message": "done" , "orders": [data]}
+
+@app.get("/api/lastorder")
+def lastorder(id):
+    data = ope.findlastorder(id)
+    return {"message": "done" , "order": data}
 @app.on_event("shutdown")
 def shutdown_db_client():
     app.mongodb_client.close()
