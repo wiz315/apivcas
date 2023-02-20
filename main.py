@@ -44,6 +44,35 @@ def getbyuserid(id):
 def lastorder(id):
     data = ope.findlastorder(id)
     return {"order": data}
+
+# create delars
+@app.post("/api/createDelars")
+def createOrders(delarOneName, delarOneAdress, delarOnePlace, delarOnePhone, delarOneMap,delarTwoName, delarTwoAddress,
+                    delarTwoPlace, delarTwoPhone, delarTwoMap, delarThreeName, delarThreeAddress, delarThreePlace, delarThreePhone, delarThreeMap,
+                    delarFourName, delarFourAddress, delarFourPlace, delarFourPhone, delarFourMap, delarFiveName, delarFiveAddres, 
+                    delarFivePlace, delarFivePhone, delarFiveMap, delarSixName, delarSixAddress, delarSixPlace, delarSixPhone,
+                    delarSixMap, delarSevenName, delarSevenAddress, delarSevenPlace, delarSevenPhone, delarSevenMap,
+                    delarEightName, delarEightAddress, delarEightplace, delarEightPhone, delarEightMap,
+                    delarNineName, delarNineAddress, delarNinePlace, delarNinePhone, delarNineMap,
+                    delarTenName, delarTenAddress, delarTenPlace, delarTenPhone, delarTenMap,
+                    delarElevenName, delarElevenAddress, delarElevenPlace, delarElevenPhone, delarElevenMap) :
+                    data = ope.newDelars(delarOneName, delarOneAdress, delarOnePlace, delarOnePhone, delarOneMap,delarTwoName, delarTwoAddress,
+                    delarTwoPlace, delarTwoPhone, delarTwoMap, delarThreeName, delarThreeAddress, delarThreePlace, delarThreePhone, delarThreeMap,
+                    delarFourName, delarFourAddress, delarFourPlace, delarFourPhone, delarFourMap, delarFiveName, delarFiveAddres, 
+                    delarFivePlace, delarFivePhone, delarFiveMap, delarSixName, delarSixAddress, delarSixPlace, delarSixPhone,
+                    delarSixMap, delarSevenName, delarSevenAddress, delarSevenPlace, delarSevenPhone, delarSevenMap,
+                    delarEightName, delarEightAddress, delarEightplace, delarEightPhone, delarEightMap,
+                    delarNineName, delarNineAddress, delarNinePlace, delarNinePhone, delarNineMap,
+                    delarTenName, delarTenAddress, delarTenPlace, delarTenPhone, delarTenMap,
+                    delarElevenName, delarElevenAddress, delarElevenPlace, delarElevenPhone, delarElevenMap)
+                    return {"delars" : "done"}
+
+# get delars
+@app.get("/api/delars")
+def lastorder():
+    data = ope.delars()
+    return {"delars": data}
+    
 @app.on_event("shutdown")
 def shutdown_db_client():
     app.mongodb_client.close()

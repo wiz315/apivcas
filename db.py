@@ -63,8 +63,84 @@ class ope():
         data = db['orders'].find({"orderId": {"$eq": orderID}})
         for doc in data:
             return doc
-    
+# 
     def findlastorder(userID):
         data = db['orders'].find({"userID": {"$eq": userID}},{'_id': 0}).sort("_id", -1 )
         for doc in data:
             return doc
+# delars list
+    def newDelars(delarOneName, delarOneAdress, delarOnePlace, delarOnePhone, delarOneMap,delarTwoName, delarTwoAddress,
+                    delarTwoPlace, delarTwoPhone, delarTwoMap, delarThreeName, delarThreeAddress, delarThreePlace, delarThreePhone, delarThreeMap,
+                    delarFourName, delarFourAddress, delarFourPlace, delarFourPhone, delarFourMap, delarFiveName, delarFiveAddres, 
+                    delarFivePlace, delarFivePhone, delarFiveMap, delarSixName, delarSixAddress, delarSixPlace, delarSixPhone,
+                    delarSixMap, delarSevenName, delarSevenAddress, delarSevenPlace, delarSevenPhone, delarSevenMap,
+                    delarEightName, delarEightAddress, delarEightplace, delarEightPhone, delarEightMap,
+                    delarNineName, delarNineAddress, delarNinePlace, delarNinePhone, delarNineMap,
+                    delarTenName, delarTenAddress, delarTenPlace, delarTenPhone, delarTenMap,
+                    delarElevenName, delarElevenAddress, delarElevenPlace, delarElevenPhone, delarElevenMap):
+                        data = {
+                            "delarOneName": delarOneName,
+                            "delarOneAdress": delarOneAdress,
+                            "delarOnePlace": delarOnePlace,
+                            "delarOnePhone": delarOnePhone,
+                            "delarOneMap": delarOneMap,
+                            "delarTwoName": delarTwoName,
+                            "delarTwoAddress": delarTwoAddress,
+                            "delarTwoPlace": delarTwoPlace,
+                            "delarTwoPhone": delarTwoPhone,
+                            "delarTwoMap": delarTwoMap,
+                            "delarThreeName": delarThreeName,
+                            "delarThreeAddress": delarThreeAddress,
+                            "delarThreePlace": delarThreePlace,
+                            "delarThreePhone": delarThreePhone,
+                            "delarThreeMap": delarThreeMap,
+                            "delarFourName": delarFourName,
+                            "delarFourAddress": delarFourAddress,
+                            "delarFourPlace": delarFourPlace,
+                            "delarFourPhone": delarFourPhone,
+                            "delarFourMap": delarFourMap,
+                            "delarFiveName": delarFiveName,
+                            "delarFiveAddres": delarFiveAddres,
+                            "delarFivePlace": delarFivePlace,
+                            "delarFivePhone": delarFivePhone,
+                            "delarFiveMap": delarFiveMap,
+                            "delarSixName": delarSixName,
+                            "delarSixAddress": delarSixAddress,
+                            "delarSixPlace": delarSixPlace,
+                            "delarSixPhone": delarSixPhone,
+                            "delarSixMap": delarSixMap,
+                            "delarSevenName": delarSevenName,
+                            "delarSevenAddress": delarSevenAddress,
+                            "delarSevenPlace": delarSevenPlace,
+                            "delarSevenPhone": delarSevenPhone,
+                            "delarSevenMap": delarSevenMap,
+                            "delarEightName": delarEightName,
+                            "delarEightAddress": delarEightAddress,
+                            "delarEightplace": delarEightplace,
+                            "delarEightPhone": delarEightPhone,
+                            "delarEightMap": delarEightMap,
+                            "delarNineName": delarNineName,
+                            "delarNineAddress": delarNineAddress,
+                            "delarNinePlace": delarNinePlace,
+                            "delarNinePhone": delarNinePhone,
+                            "delarNineMap": delarNineMap,
+                            "delarTenName": delarTenName,
+                            "delarTenAddress": delarTenAddress,
+                            "delarTenPlace": delarTenPlace,
+                            "delarTenPhone": delarTenPhone,
+                            "delarTenMap": delarTenMap,
+                            "delarElevenName": delarElevenName,
+                            "delarElevenAddress": delarElevenAddress,
+                            "delarElevenPlace": delarElevenPlace,
+                            "delarElevenPhone": delarElevenPhone,
+                            "delarElevenMap": delarElevenMap,
+                        }
+                        order = db.delar.insert_one(data)
+                        return order
+#
+    def delars():
+        data = db['delar'].find({},{'_id': 0})
+        for doc in data:
+            return doc
+a = ope.delars()
+print(a)
